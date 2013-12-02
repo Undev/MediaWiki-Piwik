@@ -79,12 +79,13 @@ class PiwikHooks {
 		
 		// Prevent XSS
 		$wgPiwikFinalActionName = Xml::encodeJsVar( $wgPiwikFinalActionName );
-		
+
 		// Piwik script
 		$script = <<<PIWIK
 <!-- Piwik -->
 <script type="text/javascript">
   var _paq = _paq || [];{$disableCookiesStr}{$customJs}
+  _paq.push(["setCustomVariable", 1, "User", "{$wgUser}", "visit"]);
   _paq.push(["trackPageView"]);
   _paq.push(["enableLinkTracking"]);
 
