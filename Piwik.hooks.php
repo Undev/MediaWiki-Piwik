@@ -81,8 +81,8 @@ class PiwikHooks {
 		$wgPiwikFinalActionName = Xml::encodeJsVar( $wgPiwikFinalActionName );
 
 		$categories = self::getCategories($title);
+		$scriptCategories = '';
 		if (!empty($categories)) {
-			$scriptCategories = '';
 			$i = 0;
 			foreach(self::getCategories($title) as $category) {
 				if (++$i > 5) break;
